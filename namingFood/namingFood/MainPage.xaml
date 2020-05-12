@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="namingFood.MainPage"
+             >
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Button Text="Enter Name"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" Clicked="showNamer" />
+        <Button Text="Enter Food" VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" Clicked="showFooder" />
+
+         <Button Text="Submit" VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" Clicked="OnSaveClicked" />
+        
+        
+        <Label x:Name="nameLabel"
+                    IsVisible="False"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center" Text="Name" />
+        <Entry Placeholder=" Enter Name Here" x:Name="newName" Keyboard="Text" Completed="addName" IsVisible="false" />
+
+        <Label x:Name="foodLabel"
+                   IsVisible="False"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center" Text="Food" />
+        <Entry Placeholder=" Enter Food Here" x:Name="newFood" Keyboard="Text" Completed="addFood" IsVisible="false"/>
+
+        <ListView x:Name="listView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="30,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding nameItem}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" BackgroundColor="black" TextColor="White" />
+                            <Label Text="{Binding foodItem}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" BackgroundColor="black" TextColor="White" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+   
+
+
+</ContentPage>
